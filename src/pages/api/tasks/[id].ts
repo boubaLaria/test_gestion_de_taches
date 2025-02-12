@@ -9,6 +9,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (req.method === 'GET') {
     const task = await prisma.task.findUnique({
       where: { id: Number(id) },
+      include: { user: true }, 
     });
     res.status(200).json(task);
   } else if (req.method === 'PUT') {
