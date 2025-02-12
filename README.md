@@ -95,11 +95,11 @@ Remplacez `USER`, `PASSWORD`, `HOST`, `PORT` et `DATABASE` par les informations 
 Voici une vidéo de présentation du projet :
 
 <video width="600" controls>
-  <source src="https://www.youtube.com/watch?v=dQw4w9WgXcQ" type="video/mp4">
+  <source src="https://www.youtube.com/watch?v=Cp1FszZFp28" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
-Vous pouvez également visionner la vidéo de présentation sur [YouTube](https://www.youtube.com/watch?v=dQw4w9WgXcQ).
+Vous pouvez également visionner la vidéo de présentation sur [YouTube](https://www.youtube.com/watch?v=Cp1FszZFp28).
 
 ## En savoir plus
 
