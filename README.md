@@ -1,36 +1,115 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Gestion Tâche
 
-## Getting Started
+Ce projet est un projet [Next.js](https://nextjs.org) bootstrappé avec [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-First, run the development server:
+## Mise en place du projet
+
+### Cloner le dépôt
+
+```bash
+git clone <URL_DU_DEPOT>
+cd gestion_tache
+```
+
+### Installer les dépendances
+
+```bash
+npm install
+# ou
+yarn install
+# ou
+pnpm install
+# ou
+bun install
+```
+
+### Lancer le serveur de développement
 
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
-# or
+# ou
 pnpm dev
-# or
+# ou
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrez [http://localhost:3000](http://localhost:3000) avec votre navigateur pour voir le résultat.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Vous pouvez commencer à éditer la page en modifiant `app/page.tsx`. La page se met à jour automatiquement lorsque vous éditez le fichier.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Ce projet utilise [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) pour optimiser et charger automatiquement [Geist](https://vercel.com/font), une nouvelle famille de polices pour Vercel.
 
-## Learn More
+## Configuration de Prisma
 
-To learn more about Next.js, take a look at the following resources:
+### Schéma Prisma
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Voici le schéma Prisma utilisé dans ce projet :
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```prisma
+generator client {
+  provider = "prisma-client-js"
+}
 
-## Deploy on Vercel
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+model Users {
+  id        Int      @id @default(autoincrement())
+  firstName String
+  lastName  String
+  tasks     Task[]
+}
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+model Task {
+  id        Int      @id @default(autoincrement())
+  name      String
+  status    String
+  userId    Int?
+  user      Users?   @relation(fields: [userId], references: [id])
+}
+```
+
+### Mettre à jour la base de données
+
+```bash
+npx prisma migrate dev --name init
+npx prisma generate
+```
+
+### Ajouter la variable d'environnement
+
+Ajoutez la ligne suivante dans votre fichier `.env` :
+
+```env
+DATABASE_URL="postgresql://USER:PASSWORD@HOST:PORT/DATABASE"
+```
+
+Remplacez `USER`, `PASSWORD`, `HOST`, `PORT` et `DATABASE` par les informations de votre base de données.
+
+## Vidéo de présentation
+
+Voici une vidéo de présentation du projet :
+
+<video width="600" controls>
+  <source src="./path/to/your/video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+## En savoir plus
+
+Pour en savoir plus sur Next.js, consultez les ressources suivantes :
+
+- [Documentation Next.js](https://nextjs.org/docs) - apprenez-en plus sur les fonctionnalités et l'API de Next.js.
+- [Apprendre Next.js](https://nextjs.org/learn) - un tutoriel interactif Next.js.
+
+Vous pouvez consulter [le dépôt GitHub de Next.js](https://github.com/vercel/next.js) - vos retours et contributions sont les bienvenus !
+
+## Déployer sur Vercel
+
+Le moyen le plus simple de déployer votre application Next.js est d'utiliser la [plateforme Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) des créateurs de Next.js.
+
+Consultez notre [documentation de déploiement Next.js](https://nextjs.org/docs/app/building-your-application/deploying) pour plus de détails.
