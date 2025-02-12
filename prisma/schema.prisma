@@ -7,7 +7,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
+model Users {
   id        Int      @id @default(autoincrement())
   firstName String
   lastName  String
@@ -19,5 +19,5 @@ model Task {
   name      String
   status    String
   userId    Int?
-  user      User?    @relation(fields: [userId], references: [id])
+  user      Users?   @relation(fields: [userId], references: [id])
 }
