@@ -95,7 +95,7 @@ Remplacez `USER`, `PASSWORD`, `HOST`, `PORT` et `DATABASE` par les informations 
 Voici une vidéo de présentation du projet :
 
 <video width="600" controls>
-  <source src="./path/to/your/video.mp4" type="video/mp4">
+  <source src="./public/presentation.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 

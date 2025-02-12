@@ -1,21 +1,21 @@
 "use client";
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { User } from '../types';
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { User } from "../types";
 
 const UserTable = () => {
   const [userData, setUserData] = useState<User[]>([]);
   const router = useRouter();
 
   useEffect(() => {
-    fetch('/api/users')
-      .then(response => response.json())
-      .then(data => setUserData(data))
-      .catch(error => console.error('Error fetching user data:', error));
+    fetch("/api/users")
+      .then((response) => response.json())
+      .then((data) => setUserData(data))
+      .catch((error) => console.error("Error fetching user data:", error));
   }, []);
 
   const handleAddUser = () => {
-    router.push('/user/add');
+    router.push("/user/add");
   };
 
   const handleEditUser = (id: number) => {
@@ -38,13 +38,14 @@ const UserTable = () => {
 
       <div className="grid grid-cols-4 border-t border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-6 md:px-6 2xl:px-7.5">
         <div className="col-span-2 flex items-center">
-          <p className="font-medium">Name</p>
+          <p className="font-medium">FirstName</p>
         </div>
         <div className="col-span-2 hidden items-center sm:flex">
-          <p className="font-medium">Email</p>
+          <p className="font-medium">LastName</p>
         </div>
-        <div className="col-span-1 flex items-center">
-          <p className="font-medium">Status</p>
+
+        <div className="grid grid-cols-4 border-t border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-6 md:px-6 2xl:px-7.5">
+          <p>action</p>
         </div>
       </div>
 
@@ -55,18 +56,15 @@ const UserTable = () => {
         >
           <div className="col-span-2 flex items-center">
             <p className="text-sm text-black dark:text-white">
-              {user.firstName} {user.lastName}
+              {user.firstName}
             </p>
           </div>
           <div className="col-span-2 hidden items-center sm:flex">
             <p className="text-sm text-black dark:text-white">
-              {user.email}
+              {user.lastName}
             </p>
           </div>
           <div className="col-span-1 flex items-center justify-between">
-            <p className="text-sm text-black dark:text-white">
-              {}
-            </p>
             <button
               onClick={() => handleEditUser(user.id)}
               className="bg-green-500 text-white px-2 py-1 rounded-md hover:bg-green-600"
