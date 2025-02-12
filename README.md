@@ -7,7 +7,7 @@ Ce projet est un projet [Next.js](https://nextjs.org) bootstrappé avec [`create
 ### Cloner le dépôt
 
 ```bash
-git clone <URL_DU_DEPOT>
+git clone git@github.com:boubaLaria/test_gestion_de_taches.git
 cd gestion_tache
 ```
 
@@ -95,9 +95,11 @@ Remplacez `USER`, `PASSWORD`, `HOST`, `PORT` et `DATABASE` par les informations 
 Voici une vidéo de présentation du projet :
 
 <video width="600" controls>
-  <source src="./public/presentation.mp4" type="video/mp4">
+  <source src="https://www.youtube.com/watch?v=dQw4w9WgXcQ" type="video/mp4">
   Your browser does not support the video tag.
 </video>
+
+Vous pouvez également visionner la vidéo de présentation sur [YouTube](https://www.youtube.com/watch?v=dQw4w9WgXcQ).
 
 ## En savoir plus
 
