@@ -2,6 +2,13 @@
 
 Ce projet est un projet [Next.js](https://nextjs.org) bootstrappé avec [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Vidéo de présentation
+
+Voici une vidéo de présentation du projet :
+
+https://github.com/user-attachments/assets/1a26496f-5b49-4d29-9221-14bbdcf10f75
+
+
 ## Mise en place du projet
 
 ### Cloner le dépôt
@@ -89,21 +96,6 @@ DATABASE_URL="postgresql://USER:PASSWORD@HOST:PORT/DATABASE"
 ```
 
 Remplacez `USER`, `PASSWORD`, `HOST`, `PORT` et `DATABASE` par les informations de votre base de données.
-
-## Vidéo de présentation
-
-Voici une vidéo de présentation du projet :
-
-
-https://github.com/user-attachments/assets/1a26496f-5b49-4d29-9221-14bbdcf10f75
-
-
-<video width="600" controls>
-  <source src="https://www.youtube.com/watch?v=Cp1FszZFp28" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
-Vous pouvez également visionner la vidéo de présentation sur [YouTube](https://www.youtube.com/watch?v=Cp1FszZFp28).
 
 ## En savoir plus
 
